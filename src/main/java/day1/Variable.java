@@ -34,9 +34,39 @@ public class Variable {
 
         // 안녕하세요 저는 20살 홍길동입니다. 10번 출력.
 
-        // 홍길동의 나이가 21살이 되었습니다. 21살로 바꿔서 10번 출력해주세요.
+        // 홍길동의 나이를 21로 바꿔주세요.
 
-        // 홍길동이 홍길만으로 개명을 했습니다. 바뀐 이름을 적용해서 10번 출력해주세요.
+        // 홍길동이 홍길만으로 개명을 했습니다. 홍길동의 이름을 홍길만으로 바꿔주세요.
+
+        int age2;
+        age2 = 21;
+
+        String name2;
+        name2 = "홍길만";
+
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+        System.out.println("안녕하세요 저는 " + age2 + "살 " + name2 + "입니다.");
+
+        // 변수 사용시 주의사항
+        // 동일한 이름의 변수가 2개 이상 존재할 수 없다.
+        // 변수명이 숫자나 특수기호로 시작해서는 안된다. 숫자에 한해서는 뒤쪽에 붙이는건 가능
+        // 변수는 재활용 가능
+        // 변수는 = 기준 왼쪽, 저장할 값은 오른쪽
+
+        int a;
+        a = 10;
+        System.out.println(a);
+        a = 20;
+        System.out.println(a);
+
 
 
 
