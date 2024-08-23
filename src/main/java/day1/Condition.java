@@ -61,8 +61,24 @@ public class Condition {
         // 20살 이상은 성인
 
         int age;
-        age = 17;
+        age = 21;
 
+        if(age <= 8) {
+            System.out.println("초등");
+        }
+        if(age <= 16) {
+            if(age > 13) {
+                System.out.println("중등");
+            }
+        }
+        if(age <= 19) {
+            if(age > 16) {
+                System.out.println("고등");
+            }
+        }
+        if(age >= 20) {
+            System.out.println("성인");
+        }
 
 
     }
