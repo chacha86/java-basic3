@@ -72,10 +72,10 @@ public class Array {
         // 중간에 값 저장
         arr4[4] = 10;
 
-
-
-
-
+        // 숫자 배열 -> 숫자만 저장 가능. 다른 타입은 불가능.
+        int[] arr5 = {1,2,3,4,5};
+        String[] arr6 = {"apple", "banana", "orange"};
+        boolean[] arr7 = {true, false, false, true};
 
 
 
