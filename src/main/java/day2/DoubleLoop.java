@@ -42,5 +42,12 @@ public class DoubleLoop {
             }
         }
 
+        // 사각형 만들기
+        for(int height = 0; height < 5; height++) {
+            for(int width = 0; width < 8; width++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
