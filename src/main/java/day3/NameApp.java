@@ -37,6 +37,8 @@ public class NameApp {
         // 명령어 입력 : exit
         // 이름 프로그램이 종료됩니다.
 
+
+        // 배열이 어려우면 일단 한명의 이름을 저장하고 출력해본다.
         Scanner sc = new Scanner(System.in);
 
         while(true) {
@@ -49,8 +51,10 @@ public class NameApp {
                 System.out.println("exit : 종료");
             } else if(command.equals("add")) {
                 System.out.println("add");
+
             } else if(command.equals("list")) {
                 System.out.println("list");
+
             } else if(command.equals("exit")) {
                 System.out.println("이름 프로그램이 종료됩니다.");
                 break;
