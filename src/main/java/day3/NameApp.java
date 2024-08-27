@@ -37,11 +37,11 @@ public class NameApp {
         // 명령어 입력 : exit
         // 이름 프로그램이 종료됩니다.
 
-
         // 배열이 어려우면 일단 한명의 이름을 저장하고 출력해본다.
         Scanner sc = new Scanner(System.in);
-
+        String name = "";
         while(true) {
+
             System.out.print("명령어 : ");
             String command = sc.nextLine();
 
@@ -50,10 +50,12 @@ public class NameApp {
                 System.out.println("list : 이름 목록 확인");
                 System.out.println("exit : 종료");
             } else if(command.equals("add")) {
-                System.out.println("add");
+                System.out.println("이름을 입력해주세요 : ");
+                name = sc.nextLine();
+                System.out.println(name + "이 명부에 저장되었습니다.");
 
             } else if(command.equals("list")) {
-                System.out.println("list");
+                System.out.println(name);
 
             } else if(command.equals("exit")) {
                 System.out.println("이름 프로그램이 종료됩니다.");
