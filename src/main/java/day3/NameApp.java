@@ -6,6 +6,8 @@ package day3;
 // 카멜 표기법
 // 함수나 변수는 소문자로 시작.
 
+import java.util.Scanner;
+
 public class NameApp {
     public static void main(String[] args) {
 
@@ -34,6 +36,26 @@ public class NameApp {
         // =====================
         // 명령어 입력 : exit
         // 이름 프로그램이 종료됩니다.
+
+        Scanner sc = new Scanner(System.in);
+
+        while(true) {
+            System.out.print("명령어 : ");
+            String command = sc.nextLine();
+
+            if(command.equals("help")) {
+                System.out.println("help");
+            } else if(command.equals("add")) {
+                System.out.println("add");
+            } else if(command.equals("list")) {
+                System.out.println("list");
+            } else if(command.equals("exit")) {
+                System.out.println("exit");
+            }
+        }
+
+        // "문자1" == "문자2"  틀린 비교
+        // "문자1".equals("문자2") 올바른 비교
 
     }
 }
