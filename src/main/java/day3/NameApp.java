@@ -17,22 +17,25 @@ public class NameApp {
         // exit : 종료
         // 명령어 입력 : add
         // 이름을 입력해주세요 : john
+        // 나이를 입력해주세요 : 24
         // john이 명부에 저장되었습니다.
         // 명령어 입력 : list
         // ===== 이름 목록 =====
-        // 1. john
+        // 1. john, 24
         // =====================
         // 명령어 입력 : add
         // 이름을 입력해주세요 : tomas
+        // 나이를 입력해주세요 : 31
         // tomas이 명부에 저장되었습니다.
         // 명령어 입력 : add
         // 이름을 입력해주세요 : chris
+        // 나이를 입력해주세요 : 18
         // chris이 명부에 저장되었습니다.
         // 명령어 입력 : list
         // ===== 이름 목록 =====
-        // 1. john
-        // 2. tomas
-        // 3. chris
+        // 1. john, 24
+        // 2. tomas, 31
+        // 3. chris, 18
         // =====================
         // 명령어 입력 : exit
         // 이름 프로그램이 종료됩니다.
@@ -41,6 +44,8 @@ public class NameApp {
         Scanner sc = new Scanner(System.in);
 //        String name = ""; // 변수를 배열로 교체
         String[] names = new String[5];
+        int[] ages = new int[5];
+
         int index = 0;
 
         while(true) {
@@ -54,14 +59,17 @@ public class NameApp {
                 System.out.println("exit : 종료");
             } else if(command.equals("add")) {
                 System.out.println("이름을 입력해주세요 : ");
-
                 names[index] = sc.nextLine();
+
+                System.out.println("나이를 입력해주세요 : ");
+                ages[index] = Integer.parseInt(sc.nextLine());
+
                 System.out.println(names[index] + "이 명부에 저장되었습니다.");
                 index++;
 
             } else if(command.equals("list")) {
                 for(int i = 0; i < index; i++) {
-                    System.out.println(names[i]);
+                    System.out.println(names[i] + ", " + ages[i]);
                 }
 
             } else if(command.equals("exit")) {
