@@ -44,13 +44,16 @@ public class NameApp {
             String command = sc.nextLine();
 
             if(command.equals("help")) {
-                System.out.println("help");
+                System.out.println("add : 이름 추가");
+                System.out.println("list : 이름 목록 확인");
+                System.out.println("exit : 종료");
             } else if(command.equals("add")) {
                 System.out.println("add");
             } else if(command.equals("list")) {
                 System.out.println("list");
             } else if(command.equals("exit")) {
-                System.out.println("exit");
+                System.out.println("이름 프로그램이 종료됩니다.");
+                break;
             }
         }
 
