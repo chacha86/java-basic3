@@ -39,7 +39,10 @@ public class NameApp {
 
         // 배열이 어려우면 일단 한명의 이름을 저장하고 출력해본다.
         Scanner sc = new Scanner(System.in);
-        String name = "";
+//        String name = ""; // 변수를 배열로 교체
+        String[] names = new String[5];
+        int index = 0;
+
         while(true) {
 
             System.out.print("명령어 : ");
@@ -51,11 +54,15 @@ public class NameApp {
                 System.out.println("exit : 종료");
             } else if(command.equals("add")) {
                 System.out.println("이름을 입력해주세요 : ");
-                name = sc.nextLine();
-                System.out.println(name + "이 명부에 저장되었습니다.");
+
+                names[index] = sc.nextLine();
+                System.out.println(names[index] + "이 명부에 저장되었습니다.");
+                index++;
 
             } else if(command.equals("list")) {
-                System.out.println(name);
+                for(int i = 0; i < index; i++) {
+                    System.out.println(names[i]);
+                }
 
             } else if(command.equals("exit")) {
                 System.out.println("이름 프로그램이 종료됩니다.");
