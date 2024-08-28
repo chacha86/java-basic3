@@ -5,13 +5,15 @@ public class InstanceVar {
 
         // 매개변수를 이용해 동작을 다채롭게
         Person p1 = new Person();
-        p1.intro("홍길동");
+        p1.name = "홍길동";
+        p1.intro();
 
         Person p2 = new Person();
-        p2.intro("이순신");
+        p2.name = "이순신";
+        p2.intro();
 
-        p1.walk("홍길동");
-        p2.walk("이순신");
+        p1.walk();
+        p2.walk();
 
 
     }
