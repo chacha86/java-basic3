@@ -1,5 +1,7 @@
 package day4.vending;
 
+import java.util.Scanner;
+
 public class VendingMachineApp {
     public static void main(String[] args) {
         // 기능 선택 (1. 돈 투입,  2. 음료 선택,  3.음료 목록 확인, 4.잔액 확인, 5. 사용 종료) : 1
@@ -56,5 +58,30 @@ public class VendingMachineApp {
 
         // 기능 선택 (1. 돈 투입,  2. 음료 선택,  3.음료 목록 확인, 4.잔액 확인, 5. 사용 종료) : 5
         // 자판기 프로그램을 종료합니다. 남은 돈 400원이 반환됩니다.
+        Scanner sc = new Scanner(System.in);
+        int remainder = 0; //잔액
+
+        while(true) {
+            System.out.print("기능 선택 (1. 돈 투입,  2. 음료 선택,  3.음료 목록 확인, 4.잔액 확인, 5. 사용 종료) : ");
+            int menu = Integer.parseInt(sc.nextLine());
+
+            if(menu == 1) {
+                System.out.print("돈을 투입해주세요 : ");
+                int money = Integer.parseInt(sc.nextLine());
+                System.out.println("현재 투입된 금액은 " + money + "원입니다.");
+                remainder = remainder + money; // 잔액에 투입 금액 합산
+
+            } else if(menu == 2) {
+
+            } else if(menu == 3) {
+
+            } else if(menu == 4) {
+
+            } else if(menu == 5) {
+                System.out.println("자판기 프로그램을 종료합니다. 남은 돈 0원이 반환됩니다.");
+                break;
+            }
+
+        }
     }
 }
