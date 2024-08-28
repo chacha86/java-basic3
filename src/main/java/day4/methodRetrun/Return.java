@@ -21,8 +21,14 @@ public class Return {
         // 원의 넓이 : 반지름 * 반지름 * 3.14
 
         // 반지름이 5인 원의 넓이 :
+        double result = t1.circleArea(5);
+        System.out.println(result);
         // 반지름이 10인 원의 넓이 :
+        System.out.println(t1.circleArea(10));
+
         // 반지름이 5인 원의 넓이를 3으로 나눈 값 :
+        System.out.println(result / 3);
         // 반지름이 10인 원의 넓이를 2배로 증가시킨 값 :
+        System.out.println(t1.circleArea(10) * 2);
     }
 }
