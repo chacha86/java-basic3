@@ -59,6 +59,8 @@ public class VendingMachineApp {
         // 기능 선택 (1. 돈 투입,  2. 음료 선택,  3.음료 목록 확인, 4.잔액 확인, 5. 사용 종료) : 5
         // 자판기 프로그램을 종료합니다. 남은 돈 400원이 반환됩니다.
         Scanner sc = new Scanner(System.in);
+        String[] names = {"콜라", "사이다", "커피"};
+        int[] prices = {1000, 1200, 800};
         int remainder = 0; //잔액
 
         while(true) {
@@ -74,6 +76,10 @@ public class VendingMachineApp {
             } else if(menu == 2) {
 
             } else if(menu == 3) {
+                System.out.println("== 음료수 목록 ==");
+                for(int i = 0; i < names.length; i++) {
+                    System.out.println(i + ". " + names[i] + " : " + prices[i] + "원");
+                }
 
             } else if(menu == 4) {
                 System.out.println("현재 잔액은 " + remainder + "원 입니다.");
