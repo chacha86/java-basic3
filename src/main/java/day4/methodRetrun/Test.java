@@ -11,4 +11,21 @@ public class Test {
     public double circleArea(int radius) {
         return radius * radius * 3.14;
     }
+
+    public void printEven(int n) {
+        for(int i = 1; i <= 10; i++) {
+            if(isEven(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    public boolean isEven(int num) {
+        if(num % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
