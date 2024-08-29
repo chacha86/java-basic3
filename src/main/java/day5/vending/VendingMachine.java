@@ -20,4 +20,15 @@ public class VendingMachine {
         remainder = remainder - prices[target];
         return names[target];
     }
+
+    public int getRemainder() {
+        return remainder;
+    }
+
+    public void printBeverages() {
+        System.out.println("== 음료수 목록 ==");
+        for(int i = 0; i < names.length; i++) {
+            System.out.println(i + ". " + names[i] + " : " + prices[i] + "원");
+        }
+    }
 }
