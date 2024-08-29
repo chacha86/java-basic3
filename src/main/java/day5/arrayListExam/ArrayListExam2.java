@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class ArrayListExam2 {
     public static void main(String[] args) {
 
-
-
         // int -> Integer
 
         //ArrayList는 타입(자료형)을 객체만 다룬다.
