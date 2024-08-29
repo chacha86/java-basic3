@@ -1,4 +1,4 @@
-package day4.vending;
+package day5.vending;
 
 import java.util.Scanner;
 
