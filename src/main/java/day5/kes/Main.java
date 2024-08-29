@@ -65,7 +65,9 @@ public class Main {
             int menu = Integer.parseInt(sc.nextLine());
 
             if(menu == 1) {
-
+                System.out.print("돈을 투입해주세요 : ");
+                int money = Integer.parseInt(sc.nextLine());
+                System.out.println("현재 투입된 금액은 " + money + "원입니다.");
             } else if(menu == 2) {
 
             } else if(menu == 3) {
