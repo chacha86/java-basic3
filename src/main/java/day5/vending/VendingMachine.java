@@ -1,5 +1,8 @@
 package day5.vending;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class VendingMachine {
 
     // 값을 세팅 X

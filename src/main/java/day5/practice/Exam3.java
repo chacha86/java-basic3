@@ -68,7 +68,6 @@ public class Exam3 {
             p.introduce();
         }
 
-
         // 2개 이상의 데이터로 표현되는 개념/사물은 무조건 객체로 만들어라.
 
     }
