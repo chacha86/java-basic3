@@ -93,9 +93,10 @@ public class Main {
                 }
 
             } else if(menu == 4) {
-
+                System.out.println("현재 잔액은 " + remainder + "입니다.");
             } else if(menu == 5) {
-
+                System.out.println("자판기 프로그램을 종료합니다. 남은 돈 " + remainder + "원이 반환됩니다.");
+                break;
             }
         }
     }
