@@ -7,9 +7,12 @@ public class VendingMachine {
     int remainder = 0;
     String[] names = {"콜라", "사이다", "커피"};
     int[] prices = {1000, 1200, 800};
+    int[] quantities = {1, 2, 1};
 
     public void inputMoney(int money) {
-        remainder = remainder + money;
+//        remainder = remainder + money; // 증감연산
+        // 증감연산의 경우 짧게 표현하는 방법 존재.
+        remainder += money; // 위와 같은 코드
     }
 
     public String selectBeverage(int target) {
@@ -17,7 +20,16 @@ public class VendingMachine {
             return "잔액 부족"; // return 하게 되면 메서드는 거기서 종료. 더이상 밑으로 안내려감.
         }
 
-        remainder = remainder - prices[target];
+        if(quantities[target] <= 0) {
+            return "수량 부족";
+        }
+
+//        remainder = remainder - prices[target];
+        remainder -= prices[target];
+
+//        quantities[target] = quantities[target] - 1;
+        quantities[target] -= 1;
+
         return names[target];
     }
 
@@ -28,7 +40,7 @@ public class VendingMachine {
     public void printBeverages() {
         System.out.println("== 음료수 목록 ==");
         for(int i = 0; i < names.length; i++) {
-            System.out.println(i + ". " + names[i] + " : " + prices[i] + "원");
+            System.out.println(i + ". " + names[i] + " : " + prices[i] + "원, " + "남은 수량 : " + quantities[i]);
         }
     }
 }
