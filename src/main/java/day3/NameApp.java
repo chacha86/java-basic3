@@ -6,6 +6,7 @@ package day3;
 // 카멜 표기법
 // 함수나 변수는 소문자로 시작.
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NameApp {
@@ -43,8 +44,8 @@ public class NameApp {
         // 배열이 어려우면 일단 한명의 이름을 저장하고 출력해본다.
         Scanner sc = new Scanner(System.in);
 //        String name = ""; // 변수를 배열로 교체
-        String[] names = new String[5];
-        int[] ages = new int[5];
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> ages = new ArrayList<>();
 
         int index = 0;
 
@@ -59,17 +60,17 @@ public class NameApp {
                 System.out.println("exit : 종료");
             } else if(command.equals("add")) {
                 System.out.println("이름을 입력해주세요 : ");
-                names[index] = sc.nextLine();
+                String name = sc.nextLine();
+                names.add(name);
 
                 System.out.println("나이를 입력해주세요 : ");
-                ages[index] = Integer.parseInt(sc.nextLine());
+                ages.add(Integer.parseInt(sc.nextLine()));
 
-                System.out.println(names[index] + "이 명부에 저장되었습니다.");
-                index++;
+                System.out.println(name + "이 명부에 저장되었습니다.");
 
             } else if(command.equals("list")) {
-                for(int i = 0; i < index; i++) {
-                    System.out.println(names[i] + ", " + ages[i]);
+                for(int i = 0; i < names.size(); i++) {
+                    System.out.println(names.get(i) + ", " + ages.get(i));
                 }
 
             } else if(command.equals("exit")) {
