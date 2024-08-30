@@ -44,10 +44,11 @@ public class NameApp {
         // 배열이 어려우면 일단 한명의 이름을 저장하고 출력해본다.
         Scanner sc = new Scanner(System.in);
 //        String name = ""; // 변수를 배열로 교체
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<Integer> ages = new ArrayList<>();
+        ArrayList<Person> people = new ArrayList<>();
 
-        int index = 0;
+        // 이름 짓는 고민 -> 대충 짓고 넘어가면 -> 큰일 난다.
+        // 이름 짓는 고민 -> 많이 해도 괜찮음.
+        // 변수 -> 명사(저장하려는 값과 관계 있어야 함), 메서드(동작) -> 동사(동작하는 것과 관계가 있어야 함)
 
         while(true) {
 
@@ -61,16 +62,20 @@ public class NameApp {
             } else if(command.equals("add")) {
                 System.out.println("이름을 입력해주세요 : ");
                 String name = sc.nextLine();
-                names.add(name);
-
                 System.out.println("나이를 입력해주세요 : ");
-                ages.add(Integer.parseInt(sc.nextLine()));
+                int age = Integer.parseInt(sc.nextLine());
 
+                Person p1 = new Person();
+                p1.age = age;
+                p1.name = name;
+
+                people.add(p1);
                 System.out.println(name + "이 명부에 저장되었습니다.");
 
             } else if(command.equals("list")) {
-                for(int i = 0; i < names.size(); i++) {
-                    System.out.println(names.get(i) + ", " + ages.get(i));
+                for(int i = 0; i < people.size(); i++) {
+                    System.out.println(people.get(i).name);
+                    System.out.println(people.get(i).age);
                 }
 
             } else if(command.equals("exit")) {
