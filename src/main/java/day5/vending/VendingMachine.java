@@ -12,7 +12,7 @@ public class VendingMachine {
 //    String[] names = {"콜라", "사이다", "커피"};
 //    int[] prices = {1000, 1200, 800};
 //    int[] quantities = {1, 2, 1};
-    
+
     ArrayList<String> names = new ArrayList<>() {{
         add("콜라");
         add("사이다");
