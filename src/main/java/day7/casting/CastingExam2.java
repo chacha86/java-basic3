@@ -7,3 +7,15 @@ public class CastingExam2 {
         weapon = new Spear();
     }
 }
+
+class Weapon {
+
+}
+
+class Bow extends Weapon {
+
+}
+
+class Spear extends Weapon {
+
+}

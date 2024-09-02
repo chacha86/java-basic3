@@ -9,7 +9,7 @@ public class LeeCorparation {
 
 
         LeeCorp leeCorp = new LeeCorp();
-        leeCorp.kildong = new Kildong();
+        leeCorp.developer = new Kildong();
         leeCorp.kilsoon = new Kilsoon();
 
 //        leeCorp.kildong = new Kildong();
@@ -21,10 +21,11 @@ public class LeeCorparation {
 }
 
 class LeeCorp {
-    Kildong kildong;
+    JavaDeveloper developer;
     Kilsoon kilsoon;
+
     public void java() {
-        kildong.java();
+        developer.java();
     }
 
     public void python() {
