@@ -30,3 +30,9 @@ class Kilsoon {
         System.out.println("파이썬 프로그래밍");
     }
 }
+
+class Jinee {
+    public void java() {
+        System.out.println("아주 뛰어난 자바 프로그래밍");
+    }
+}
