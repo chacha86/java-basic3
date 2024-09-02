@@ -27,16 +27,27 @@ public class DuckSimulation {
 
         Duck d1 = new Duck();
         d1.fly();
+        d1.swim();
 
         MallardDuck d2 = new MallardDuck();
         d2.fly();
+        d2.swim();
 
         WhiteDuck d3 = new WhiteDuck();
         d3.fly();
+        d3.swim();
 
         RubberDuck d4 = new RubberDuck();
         d4.fly();
+        d4.swim();
 
+        RubberDuck2 d5 = new RubberDuck2();
+        d5.fly();
+        d5.swim();
+
+        AsuraDuck d6 = new AsuraDuck();
+        d6.fly();
+        d6.swim();
     }
 }
 
@@ -44,6 +55,10 @@ class Duck {
 
     public void fly() {
         System.out.println("오리가 날개로 날아갑니다.");
+    }
+
+    public void swim() {
+        System.out.println("오리가 오리발로 헤엄칩니다.");
     }
 }
 
@@ -57,5 +72,22 @@ class RubberDuck extends Duck {
     // 오버라이딩
     public void fly() {
         System.out.println("저는 날 수 없어요..");
+    }
+
+    public void swim() {
+        System.out.println("오리가 둥둥 떠다닙니다.");
+    }
+}
+
+class RubberDuck2 extends RubberDuck {
+
+}
+
+// 상속의 한계.
+// 객체가 많아지고 상속 관계가 복잡해질 수록 중복 해결이 어려워진다.
+// 상속은 잘못사용하면 큰일난다.
+class AsuraDuck extends RubberDuck {
+    public void fly() {
+        System.out.println("오리가 날개로 날아갑니다.");
     }
 }
