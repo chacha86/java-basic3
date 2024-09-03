@@ -48,7 +48,7 @@ public class Board {
                 // 논리연산자
                 // 조건1 || 조건2 -> 조건1 조건2 둘 중 하나만 만족해도 실행
                 // 조건1 && 조건2 -> 조건1 조건2가 동시에 만족(모두 만족)해야만 실행
-                if(targetIdx < 0 || targetIdx >= posts.size()) {
+                if(targetIdx < 1 || targetIdx > posts.size()) {
                     System.out.println("없는 게시물 번호입니다.");
                     continue;
                 }
