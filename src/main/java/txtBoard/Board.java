@@ -28,19 +28,36 @@ public class Board {
                 posts.add(post);
                 System.out.println("게시물이 등록되었습니다.");
             } else if(command.equals("list")) {
-//                System.out.println("==================");
-//                for(int i = 0; i < posts.size(); i++) {
-//                    System.out.printf("제목 : %s\n", posts.get(i).getTitle());
-//                    System.out.printf("내용 : %s\n", posts.get(i).getBody());
-//                    System.out.println("==================");
-//                }
-
                 System.out.println("==================");
-                for(Post post : posts) {
-                    System.out.printf("제목 : %s\n", post.getTitle());
-                    System.out.printf("내용 : %s\n", post.getBody());
+                for(int i = 0; i < posts.size(); i++) {
+                    System.out.printf("번호 : %d\n", i + 1);
+                    System.out.printf("제목 : %s\n", posts.get(i).getTitle());
+//                    System.out.printf("내용 : %s\n", posts.get(i).getBody());
                     System.out.println("==================");
                 }
+
+//                System.out.println("==================");
+//                for(Post post : posts) {
+//                    System.out.printf("제목 : %s\n", post.getTitle());
+//                    System.out.println("==================");
+//                }
+            } else if(command.equals("update")) {
+                System.out.print("수정할 게시물 번호 : ");
+                int targetIdx = Integer.parseInt(sc.nextLine());
+
+                System.out.print("수정할 제목 : ");
+                String newTitle = sc.nextLine();
+                System.out.print("수정할 내용 : ");
+                String newBody = sc.nextLine();
+
+//                Post newPost = new Post(newTitle, newBody);
+//                posts.set(targetIdx - 1, newPost); // 원하는 위치의 post를 newPost로 교체
+
+                Post post = posts.get(targetIdx - 1);
+                post.setTitle(newTitle);
+                post.setBody(newBody);
+
+
             }
         }
     }
