@@ -45,6 +45,14 @@ public class Board {
                 System.out.print("수정할 게시물 번호 : ");
                 int targetIdx = Integer.parseInt(sc.nextLine());
 
+                // 논리연산자
+                // 조건1 || 조건2 -> 조건1 조건2 둘 중 하나만 만족해도 실행
+                // 조건1 && 조건2 -> 조건1 조건2가 동시에 만족(모두 만족)해야만 실행
+                if(targetIdx < 0 || targetIdx >= posts.size()) {
+                    System.out.println("없는 게시물 번호입니다.");
+                    continue;
+                }
+
                 System.out.print("수정할 제목 : ");
                 String newTitle = sc.nextLine();
                 System.out.print("수정할 내용 : ");
@@ -56,6 +64,8 @@ public class Board {
                 Post post = posts.get(targetIdx - 1);
                 post.setTitle(newTitle);
                 post.setBody(newBody);
+
+                System.out.println("수정이 완료되었습니다.");
 
 
             }
