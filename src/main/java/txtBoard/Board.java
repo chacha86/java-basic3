@@ -27,6 +27,20 @@ public class Board {
 
                 posts.add(post);
                 System.out.println("게시물이 등록되었습니다.");
+            } else if(command.equals("list")) {
+//                System.out.println("==================");
+//                for(int i = 0; i < posts.size(); i++) {
+//                    System.out.printf("제목 : %s\n", posts.get(i).getTitle());
+//                    System.out.printf("내용 : %s\n", posts.get(i).getBody());
+//                    System.out.println("==================");
+//                }
+
+                System.out.println("==================");
+                for(Post post : posts) {
+                    System.out.printf("제목 : %s\n", post.getTitle());
+                    System.out.printf("내용 : %s\n", post.getBody());
+                    System.out.println("==================");
+                }
             }
         }
     }
