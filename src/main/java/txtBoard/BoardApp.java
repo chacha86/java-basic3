@@ -44,13 +44,8 @@ public class BoardApp {
                 lastestId++;
 
             } else if (command.equals("list")) {
+                printPostList(posts);
 
-                System.out.println("==================");
-                for (Post post : posts) {
-                    System.out.printf("번호 : %d\n", post.getId());
-                    System.out.printf("제목 : %s\n", post.getTitle());
-                    System.out.println("==================");
-                }
             } else if (command.equals("update")) {
 
                 System.out.print("수정할 게시물 번호 : ");
@@ -108,15 +103,15 @@ public class BoardApp {
                 System.out.print("검색 키워드 : ");
                 String keyword = sc.nextLine();
 
-                System.out.println("==================");
-                for (Post post : posts) {
-                    if (post.getTitle().contains(keyword)) {
-                        System.out.printf("번호 : %d\n", post.getId());
-                        System.out.printf("제목 : %s\n", post.getTitle());
-                        System.out.println("==================");
+                ArrayList<Post> searchedPostList = new ArrayList<>();
+
+                for(Post post : posts) {
+                    if(post.getTitle().contains(keyword)) {
+                        searchedPostList.add(post);
                     }
                 }
 
+                printPostList(searchedPostList);
             }
         }
     }
@@ -143,5 +138,15 @@ public class BoardApp {
 
         return formattedDateTime;
 
+    }
+
+    public void printPostList(ArrayList<Post> targetList) {
+        System.out.println("==================");
+        for (Post post : targetList) {
+            System.out.printf("번호 : %d\n", post.getId());
+            System.out.printf("제목 : %s\n", post.getTitle());
+            System.out.println("작성자 : hong");
+            System.out.println("==================");
+        }
     }
 }
