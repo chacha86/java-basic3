@@ -72,19 +72,35 @@ public class BoardApp {
                 posts.remove(post);
                 System.out.println("삭제가 완료되었습니다.");
 
+            } else if(command.equals("detail")) {
+
+                System.out.print("상세보기 할 게시물 번호 : ");
+                int targetId = Integer.parseInt(sc.nextLine());
+
+                Post post = findPostById(targetId);
+
+                if(post == null) {
+                    System.out.println("없는 게시물 번호 입니다.");
+                    continue;
+                }
+
+                System.out.printf("번호 : %d\n", post.getId());
+                System.out.printf("제목 : %s\n", post.getTitle());
+                System.out.printf("내용 : %s\n", post.getBody());
+
+
             }
         }
     }
 
     public Post findPostById(int id) {
 
-        // 만약 내가 찾고자 하는 게시물이 없다면?
         for (Post post : posts) {
             if (post.getId() == id) {
-                return post; // return을 만나면 메서드는 그 즉시 종료.
+                return post;
             }
         }
 
-        return null; // null은 없다라는 의미
+        return null;
     }
 }
