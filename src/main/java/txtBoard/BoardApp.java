@@ -58,7 +58,7 @@ public class BoardApp {
 
                 Post post = findPostById(targetId);
 
-                if(post == null) {
+                if (post == null) {
                     System.out.println("없는 게시물 번호입니다.");
                     continue;
                 }
@@ -77,7 +77,7 @@ public class BoardApp {
                 int targetId = Integer.parseInt(sc.nextLine());
                 Post post = findPostById(targetId);
 
-                if(post == null) {
+                if (post == null) {
                     System.out.println("없는 게시물 번호입니다.");
                     continue;
                 }
@@ -85,14 +85,14 @@ public class BoardApp {
                 posts.remove(post);
                 System.out.println("삭제가 완료되었습니다.");
 
-            } else if(command.equals("detail")) {
+            } else if (command.equals("detail")) {
 
                 System.out.print("상세보기 할 게시물 번호 : ");
                 int targetId = Integer.parseInt(sc.nextLine());
 
                 Post post = findPostById(targetId);
 
-                if(post == null) {
+                if (post == null) {
                     System.out.println("없는 게시물 번호 입니다.");
                     continue;
                 }
@@ -103,6 +103,19 @@ public class BoardApp {
                 System.out.printf("내용 : %s\n", post.getBody());
                 System.out.printf("등록날짜 : %s\n", post.getCreateDate());
                 System.out.printf("조회수 : %d\n", post.getHit());
+
+            } else if (command.equals("search")) {
+                System.out.print("검색 키워드 : ");
+                String keyword = sc.nextLine();
+
+                System.out.println("==================");
+                for (Post post : posts) {
+                    if (post.getTitle().contains(keyword)) {
+                        System.out.printf("번호 : %d\n", post.getId());
+                        System.out.printf("제목 : %s\n", post.getTitle());
+                        System.out.println("==================");
+                    }
+                }
 
             }
         }
