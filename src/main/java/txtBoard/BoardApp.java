@@ -9,10 +9,22 @@ public class BoardApp {
 
     ArrayList<Post> posts = new ArrayList<>();
 
+    // 값의 초기화는 대부분 생성자에서 해주는 것을 권장합니다. 다양한 로직 수행 가능합니다.
+    public BoardApp() {
+
+        Post p1 = new Post(1, "안녕하세요 반갑습니다. java 공부중이에요.", "냉무", getCurrentDateTime());
+        Post p2 = new Post(2, "java 질문좀 할게요~.", "냉무", getCurrentDateTime());
+        Post p3 = new Post(3, "정처기 따야되나요?", "냉무", getCurrentDateTime());
+
+        posts.add(p1);
+        posts.add(p2);
+        posts.add(p3);
+    }
+
     public void run() {
         Scanner sc = new Scanner(System.in);
 
-        int lastestId = 1;
+        int lastestId = 4;
 
         while (true) {
             System.out.print("명령어 : ");
@@ -26,16 +38,7 @@ public class BoardApp {
                 String title = sc.nextLine();
                 System.out.print("게시물 내용을 입력해주세요 : ");
                 String body = sc.nextLine();
-
-
-                // 현재 날짜와 시간 가져오기
-                LocalDateTime currentDateTime = LocalDateTime.now();
-                // 원하는 포맷 지정하기
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
-                // 포맷 적용하여 출력하기
-                String formattedDateTime = currentDateTime.format(formatter);
-
-                Post post = new Post(lastestId, title, body, formattedDateTime);
+                Post post = new Post(lastestId, title, body, getCurrentDateTime());
                 posts.add(post);
                 System.out.println("게시물이 등록되었습니다.");
                 lastestId++;
@@ -113,5 +116,18 @@ public class BoardApp {
         }
 
         return null;
+    }
+
+    public String getCurrentDateTime() {
+
+        // 현재 날짜와 시간 가져오기
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        // 원하는 포맷 지정하기
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+        // 포맷 적용하여 출력하기
+        String formattedDateTime = currentDateTime.format(formatter);
+
+        return formattedDateTime;
+
     }
 }
