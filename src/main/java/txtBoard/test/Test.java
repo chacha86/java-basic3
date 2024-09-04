@@ -16,13 +16,18 @@ public class Test {
 
         ArrayList<String> arr = new ArrayList<>();
 
+        myTest(arr);
+
+        System.out.println(arr.get(0));
 
 
     }
 
     // main에서 arr을 넘겨받아 "apple", "banana", "orange" 저장
-    public static void setArr() {
-
+    public static void myTest(ArrayList<String> param) {
+        param.add("apple");
+        param.add("banana");
+        param.add("orange");
     }
 
     public static Person getPerson() {
