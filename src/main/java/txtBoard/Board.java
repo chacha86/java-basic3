@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 public class Board {
 
+    // main 메서드와 findPostById 메서드가 같이 사용해야 하므로 main 밖으로 빼주고 static 붙여줌
+    static ArrayList<Post> posts = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Post> posts = new ArrayList<>();
+
         int lastestId = 1;
 
         while (true) {
@@ -42,32 +44,48 @@ public class Board {
                 System.out.print("수정할 게시물 번호 : ");
                 int targetId = Integer.parseInt(sc.nextLine());
 
-                for (Post post : posts) {
-                    if (post.getId() == targetId) {
-                        System.out.print("수정할 제목 : ");
-                        String newTitle = sc.nextLine();
-                        System.out.print("수정할 내용 : ");
-                        String newBody = sc.nextLine();
+                Post post = findPostById(targetId);
 
-                        post.setTitle(newTitle);
-                        post.setBody(newBody);
-                        System.out.println("수정이 완료되었습니다.");
-                        break;
-                    }
+                if(post == null) {
+                    System.out.println("없는 게시물 번호입니다.");
+                    continue;
                 }
 
-            } else if(command.equals("delete")) {
+                System.out.print("수정할 제목 : ");
+                String newTitle = sc.nextLine();
+                System.out.print("수정할 내용 : ");
+                String newBody = sc.nextLine();
+
+                post.setTitle(newTitle);
+                post.setBody(newBody);
+                System.out.println("수정이 완료되었습니다.");
+
+            } else if (command.equals("delete")) {
                 System.out.print("삭제할 게시물 번호 : ");
                 int targetId = Integer.parseInt(sc.nextLine());
+                Post post = findPostById(targetId);
 
-                for (Post post : posts) {
-                    if (post.getId() == targetId) {
-                        posts.remove(post);
-                        System.out.println("삭제가 완료되었습니다.");
-                        break;
-                    }
+                if(post == null) {
+                    System.out.println("없는 게시물 번호입니다.");
+                    continue;
                 }
+
+                posts.remove(post);
+                System.out.println("삭제가 완료되었습니다.");
+
             }
         }
+    }
+
+    public static Post findPostById(int id) {
+
+        // 만약 내가 찾고자 하는 게시물이 없다면?
+        for (Post post : posts) {
+            if (post.getId() == id) {
+                return post; // return을 만나면 메서드는 그 즉시 종료.
+            }
+        }
+
+        return null; // null은 없다라는 의미
     }
 }
