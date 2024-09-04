@@ -4,11 +4,21 @@ public class Post {
     private int id;
     private String title;
     private String body;
+    private String createDate;
 
-    public Post(int id, String title, String body) {
+    public Post(int id, String title, String body, String createDate) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.createDate = createDate;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public int getId() {

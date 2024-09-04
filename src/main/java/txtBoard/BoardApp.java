@@ -1,5 +1,7 @@
 package txtBoard;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,7 +27,15 @@ public class BoardApp {
                 System.out.print("게시물 내용을 입력해주세요 : ");
                 String body = sc.nextLine();
 
-                Post post = new Post(lastestId, title, body);
+
+                // 현재 날짜와 시간 가져오기
+                LocalDateTime currentDateTime = LocalDateTime.now();
+                // 원하는 포맷 지정하기
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+                // 포맷 적용하여 출력하기
+                String formattedDateTime = currentDateTime.format(formatter);
+
+                Post post = new Post(lastestId, title, body, formattedDateTime);
                 posts.add(post);
                 System.out.println("게시물이 등록되었습니다.");
                 lastestId++;
@@ -87,6 +97,7 @@ public class BoardApp {
                 System.out.printf("번호 : %d\n", post.getId());
                 System.out.printf("제목 : %s\n", post.getTitle());
                 System.out.printf("내용 : %s\n", post.getBody());
+                System.out.printf("등록날짜 : %s\n", post.getCreateDate());
 
 
             }
