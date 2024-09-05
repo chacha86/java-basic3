@@ -11,6 +11,7 @@ public class BoardApp {
     Scanner sc = new Scanner(System.in);
     int lastestId = 4;
     PostRepository postRepository = new PostRepository();
+    PostView postView = new PostView();
 
     // 값의 초기화는 대부분 생성자에서 해주는 것을 권장합니다. 다양한 로직 수행 가능합니다.
     public BoardApp() {
@@ -50,7 +51,7 @@ public class BoardApp {
 
     private void list() {
         ArrayList<Post> posts = postRepository.getPosts();
-        printPostList(posts);
+        postView.printPostList(posts);
     }
 
     private void search() {
@@ -58,7 +59,7 @@ public class BoardApp {
         String keyword = sc.nextLine();
 
         ArrayList<Post> searchedPostList = postRepository.getPostsByKeyword(keyword);
-        printPostList(searchedPostList);
+        postView.printPostList(searchedPostList);
     }
 
     private void detail() {
@@ -72,12 +73,8 @@ public class BoardApp {
             return;
         }
         post.increaseHit();
+        postView.printPostDetail(post);
 
-        System.out.printf("번호 : %d\n", post.getId());
-        System.out.printf("제목 : %s\n", post.getTitle());
-        System.out.printf("내용 : %s\n", post.getBody());
-        System.out.printf("등록날짜 : %s\n", post.getCreateDate());
-        System.out.printf("조회수 : %d\n", post.getHit());
     }
 
     private void delete() {
@@ -142,13 +139,5 @@ public class BoardApp {
 
     }
 
-    public void printPostList(ArrayList<Post> targetList) {
-        System.out.println("==================");
-        for (Post post : targetList) {
-            System.out.printf("번호 : %d\n", post.getId());
-            System.out.printf("제목 : %s\n", post.getTitle());
-            System.out.println("작성자 : hong");
-            System.out.println("==================");
-        }
-    }
+
 }
