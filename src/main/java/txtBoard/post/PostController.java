@@ -23,6 +23,7 @@ public class PostController {
         postRepository.save(p3);
     }
 
+    // command : detail
     public void detail() {
         System.out.print("상세보기 할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
@@ -40,11 +41,13 @@ public class PostController {
 
     }
 
+    // commadn : list
     public void list() {
         ArrayList<Post> posts = postRepository.getPosts();
         postView.printPostList(posts);
     }
 
+    // command : search
     public void search() {
         System.out.print("검색 키워드 : ");
         String keyword = sc.nextLine();
@@ -53,8 +56,7 @@ public class PostController {
         postView.printPostList(searchedPostList);
     }
 
-
-
+    // command : delete
     public void delete() {
         System.out.print("삭제할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
@@ -70,6 +72,7 @@ public class PostController {
 
     }
 
+    // command : update
     public void update() {
         System.out.print("수정할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
@@ -91,6 +94,7 @@ public class PostController {
         System.out.println("수정이 완료되었습니다.");
     }
 
+    // command : add
     public void add() {
         System.out.print("게시물 제목을 입력해주세요 : ");
         String title = sc.nextLine();
