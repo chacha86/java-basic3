@@ -1,4 +1,4 @@
-package txtBoard;
+package txtBoard.post;
 
 import java.util.ArrayList;
 
