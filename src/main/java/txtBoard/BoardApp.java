@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class BoardApp {
 
-    ArrayList<Post> posts = new ArrayList<>();
+
     Scanner sc = new Scanner(System.in);
     int lastestId = 4;
+    PostRepository postRepository = new PostRepository();
 
     // 값의 초기화는 대부분 생성자에서 해주는 것을 권장합니다. 다양한 로직 수행 가능합니다.
     public BoardApp() {
@@ -18,9 +19,10 @@ public class BoardApp {
         Post p2 = new Post(2, "java 질문좀 할게요~.", "냉무", getCurrentDateTime(), 0);
         Post p3 = new Post(3, "정처기 따야되나요?", "냉무", getCurrentDateTime(), 0);
 
-        posts.add(p1);
-        posts.add(p2);
-        posts.add(p3);
+        postRepository.save(p1);
+        postRepository.save(p2);
+        postRepository.save(p3);
+
     }
 
     public void run() {
@@ -33,7 +35,7 @@ public class BoardApp {
             } else if (command.equals("add")) {
                 add();
             } else if (command.equals("list")) {
-                printPostList(posts);
+                list();
             } else if (command.equals("update")) {
                 update();
             } else if (command.equals("delete")) {
@@ -46,10 +48,16 @@ public class BoardApp {
         }
     }
 
+    private void list() {
+        ArrayList<Post> posts = postRepository.getPosts();
+        printPostList(posts);
+    }
+
     private void search() {
         System.out.print("검색 키워드 : ");
         String keyword = sc.nextLine();
 
+        ArrayList<Post> posts = postRepository.getPosts();
         ArrayList<Post> searchedPostList = new ArrayList<>();
 
         for(Post post : posts) {
@@ -90,7 +98,7 @@ public class BoardApp {
             return;
         }
 
-        posts.remove(post);
+        postRepository.delete(post);
         System.out.println("삭제가 완료되었습니다.");
 
     }
@@ -122,13 +130,13 @@ public class BoardApp {
         System.out.print("게시물 내용을 입력해주세요 : ");
         String body = sc.nextLine();
         Post post = new Post(lastestId, title, body, getCurrentDateTime(), 0);
-        posts.add(post);
+        postRepository.save(post);
         System.out.println("게시물이 등록되었습니다.");
         lastestId++;
     }
 
     public Post findPostById(int id) {
-
+        ArrayList<Post> posts = postRepository.getPosts();
         for (Post post : posts) {
             if (post.getId() == id) {
                 return post;
