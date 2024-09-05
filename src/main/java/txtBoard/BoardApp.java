@@ -57,15 +57,7 @@ public class BoardApp {
         System.out.print("검색 키워드 : ");
         String keyword = sc.nextLine();
 
-        ArrayList<Post> posts = postRepository.getPosts();
-        ArrayList<Post> searchedPostList = new ArrayList<>();
-
-        for(Post post : posts) {
-            if(post.getTitle().contains(keyword)) {
-                searchedPostList.add(post);
-            }
-        }
-
+        ArrayList<Post> searchedPostList = postRepository.getPostsByKeyword(keyword);
         printPostList(searchedPostList);
     }
 
@@ -73,7 +65,7 @@ public class BoardApp {
         System.out.print("상세보기 할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
 
-        Post post = findPostById(targetId);
+        Post post = postRepository.findPostById(targetId);
 
         if (post == null) {
             System.out.println("없는 게시물 번호 입니다.");
@@ -91,7 +83,7 @@ public class BoardApp {
     private void delete() {
         System.out.print("삭제할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
-        Post post = findPostById(targetId);
+        Post post = postRepository.findPostById(targetId);
 
         if (post == null) {
             System.out.println("없는 게시물 번호입니다.");
@@ -107,7 +99,7 @@ public class BoardApp {
         System.out.print("수정할 게시물 번호 : ");
         int targetId = Integer.parseInt(sc.nextLine());
 
-        Post post = findPostById(targetId);
+        Post post = postRepository.findPostById(targetId);
 
         if (post == null) {
             System.out.println("없는 게시물 번호입니다.");
@@ -135,16 +127,7 @@ public class BoardApp {
         lastestId++;
     }
 
-    public Post findPostById(int id) {
-        ArrayList<Post> posts = postRepository.getPosts();
-        for (Post post : posts) {
-            if (post.getId() == id) {
-                return post;
-            }
-        }
 
-        return null;
-    }
 
     public String getCurrentDateTime() {
 
