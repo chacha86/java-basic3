@@ -24,9 +24,19 @@ public class FileTest {
         String content = fu.load("test.json");
 
         Post post = ju.toPost(content); // json 문자열을 Post로 객체화(역직렬화)
-        System.out.println(post.getTitle());
 
+        Member m1 = new Member();
+        m1.setLoginId("hong");
+        m1.setLoginPw("1234");
+        m1.setNickname("홍길동");
 
+        String memberJson = ju.toJsonString(m1); // Member 직렬화
+        fu.save(memberJson, "member.json");
+
+        String memberContent = fu.load("member.json"); // 문자 => 객체.
+        Member m2 = ju.toMember(memberContent);
+        System.out.println(m2.getNickname());
 
     }
+
 }
