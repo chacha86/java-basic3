@@ -24,4 +24,16 @@ public class JsonUtil {
         return null;
     }
 
+    public Post toPost(String jsonString) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            Post post = objectMapper.readValue(jsonString, Post.class);
+            return post;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

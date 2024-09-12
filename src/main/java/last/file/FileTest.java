@@ -23,6 +23,10 @@ public class FileTest {
         fu.save(jsonString, "test.json"); // 직렬화된 p1을 test.json 파일에 저장
         String content = fu.load("test.json");
 
-        System.out.println(content);
+        Post post = ju.toPost(content); // json 문자열을 Post로 객체화(역직렬화)
+        System.out.println(post.getTitle());
+
+
+
     }
 }
