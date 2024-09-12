@@ -1,5 +1,6 @@
 package txtBoard.post;
 
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,7 +27,15 @@ public class PostController {
     // command : detail
     public void detail() {
         System.out.print("상세보기 할 게시물 번호 : ");
-        int targetId = Integer.parseInt(sc.nextLine());
+
+        int targetId = getParsedInt(sc.nextLine(), -1);
+
+        if(targetId == -1) {
+            return;
+        }
+
+        // try - catch를 최대한 사용 안하는게 좋다.
+        // 몇가지 상황을 제외하고는 try - catch 사용안하고 if로 처리 다 가능함.
 
         Post post = postRepository.findPostById(targetId);  // 창고에서 꺼내서
 
@@ -59,7 +68,12 @@ public class PostController {
     // command : delete
     public void delete() {
         System.out.print("삭제할 게시물 번호 : ");
-        int targetId = Integer.parseInt(sc.nextLine());
+        int targetId = getParsedInt(sc.nextLine(), -1);
+
+        if(targetId == -1) {
+            return;
+        }
+
         Post post = postRepository.findPostById(targetId);
 
         if (post == null) {
@@ -75,7 +89,11 @@ public class PostController {
     // command : update
     public void update() {
         System.out.print("수정할 게시물 번호 : ");
-        int targetId = Integer.parseInt(sc.nextLine());
+        int targetId = getParsedInt(sc.nextLine(), -1);
+
+        if(targetId == -1) {
+            return;
+        }
 
         Post post = postRepository.findPostById(targetId);
 
@@ -117,5 +135,17 @@ public class PostController {
 
         return formattedDateTime;
 
+    }
+
+    public int getParsedInt(String value, int defaultValue) {
+        try {
+            int parsedInt = Integer.parseInt(value);
+            return parsedInt;
+
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력해주세요.");
+        }
+
+        return defaultValue;
     }
 }
