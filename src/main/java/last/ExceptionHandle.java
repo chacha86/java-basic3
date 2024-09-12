@@ -43,8 +43,6 @@ public class ExceptionHandle {
         } finally {
             System.out.println("여기는 무조건 실행되고 끝남");
         }
-
-        System.out.println("hihi");
-
     }
+
 }
