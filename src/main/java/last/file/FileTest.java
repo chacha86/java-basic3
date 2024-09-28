@@ -23,7 +23,7 @@ public class FileTest {
         fu.save(jsonString, "test.json"); // 직렬화된 p1을 test.json 파일에 저장
         String content = fu.load("test.json");
 
-        Post post = ju.toPost(content); // json 문자열을 Post로 객체화(역직렬화)
+        Post post = ju.toObject(content, Post.class); // Post의 class 정보를 넘김
 
         Member m1 = new Member();
         m1.setLoginId("hong");
@@ -34,7 +34,7 @@ public class FileTest {
         fu.save(memberJson, "member.json");
 
         String memberContent = fu.load("member.json"); // 문자 => 객체.
-        Member m2 = ju.toMember(memberContent);
+        Member m2 = ju.toObject(memberContent, Member.class); // Member의 class 정보를 넘김
         System.out.println(m2.getNickname());
 
     }
